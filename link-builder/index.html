@@ -15,6 +15,7 @@
             margin: 50px auto;
             font-family: sans-serif;
             border-radius: 10px;
+            word-break: break-all;
         }
         iframe {
             z-index: -1;
@@ -37,7 +38,12 @@
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script>
         function getLink(url, partner) {
-            return "https://www.discoverdandelion.com/redirector/?partner=" + partner + "&url=" + encodeURIComponent(url)
+            return (
+                "https://www.discoverdandelion.com/redirector/?partner=" + 
+                encodeURIComponent(partner) + 
+                "&url=" + 
+                encodeURIComponent(url)
+            )
         }
             $('.url, .partner').keyup(function() {
                 var link = getLink($('.url').val(), $('.partner').val())
