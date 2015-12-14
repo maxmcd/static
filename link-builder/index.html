@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DD Link Builder</title>
+    <style>
+        body, html {
+            text-align: center;
+            padding: 20px;
+        }
+        .content {
+            background-color: #999;
+            padding: 50px;
+            max-width: 350px;
+            margin: 50px auto;
+            font-family: sans-serif;
+            border-radius: 10px;
+        }
+        iframe {
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0px; top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <iframe src="http://www.johnnyglase.com" frameborder="0"></iframe>
+    <div class="content">
+        <input type="text" class="url form-control" placeholder="url">
+        <input type="text" class="partner form-control" placeholder="partner">
+        <p>
+           <a href="https://www.discoverdandelion.com/redirector/" class="link">https://www.discoverdandelion.com/redirector/</a>    
+        </p>
+    </div>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        function getLink(url, partner) {
+            return "https://www.discoverdandelion.com/redirector/?partner=" + partner + "&url=" + encodeURIComponent(url)
+        }
+            $('.url, .partner').keyup(function() {
+                var link = getLink($('.url').val(), $('.partner').val())
+                $('.link').text(link).attr('href', link)
+            })            
+    </script>
+</body>
+</html>
